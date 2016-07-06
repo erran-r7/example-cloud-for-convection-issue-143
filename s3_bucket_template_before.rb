@@ -9,6 +9,9 @@ S3_BUCKET_BEFORE = Convection.template do
     # Properties
     access_control 'Private'
     bucket_name 'Issue137PrivateBucket'
+    notification_configuration 'TopicConfigurations' => [
+      { 'Topic' => 'some-arn', 'Event' => 'SomeEvent' }
+    ]
     versioning_configuration 'Status' => 'Enabled'
 
     # Outputs

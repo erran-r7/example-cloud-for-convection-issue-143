@@ -9,6 +9,12 @@ S3_BUCKET_AFTER = Convection.template do
     # Properties
     access_control 'Private'
     bucket_name 'Issue137PrivateBucket'
+    notification_configuration do
+      topic_configuration do
+        topic 'some-arn'
+        event 'SomeEvent'
+      end
+    end
     versioning_configuration do
       status 'Enabled'
     end

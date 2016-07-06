@@ -13,6 +13,14 @@
       "Properties": {
         "BucketName": "Issue137PrivateBucket",
         "AccessControl": "Private",
+        "NotificationConfiguration": {
+          "TopicConfigurations": [
+            {
+              "Topic": "some-arn",
+              "Event": "SomeEvent"
+            }
+          ]
+        },
         "VersioningConfiguration": {
           "Status": "Enabled"
         }
