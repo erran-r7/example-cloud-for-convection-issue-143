@@ -9,6 +9,16 @@ S3_BUCKET_AFTER = Convection.template do
     # Properties
     access_control 'Private'
     bucket_name 'Issue137PrivateBucket'
+    lifecycle_configuration do
+      rule do
+        status 'Enabled'
+        transition do
+          storage_class 'GLACIER'
+          transition_date '2016-07-06T23:27:50+00:00'
+          transition_in_days 0
+        end
+      end
+    end
     notification_configuration do
       topic_configuration do
         topic 'some-arn'

@@ -13,6 +13,20 @@
       "Properties": {
         "BucketName": "Issue137PrivateBucket",
         "AccessControl": "Private",
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "Status": "Enabled",
+              "Transitions": [
+                {
+                  "StorageClass": "GLACIER",
+                  "TransitionDate": "2016-07-06T23:27:50+00:00",
+                  "TransitionInDays": 0
+                }
+              ]
+            }
+          ]
+        },
         "NotificationConfiguration": {
           "TopicConfigurations": [
             {

@@ -9,6 +9,14 @@ S3_BUCKET_BEFORE = Convection.template do
     # Properties
     access_control 'Private'
     bucket_name 'Issue137PrivateBucket'
+    lifecycle_configuration 'Rules' => [
+      {
+        'Status' => 'Enabled',
+        'Transitions' => [
+          { 'StorageClass' => 'GLACIER', 'TransitionDate' => '2016-07-06T23:27:50+00:00', 'TransitionInDays' => 0 }
+        ]
+      }
+    ]
     notification_configuration 'TopicConfigurations' => [
       { 'Topic' => 'some-arn', 'Event' => 'SomeEvent' }
     ]
