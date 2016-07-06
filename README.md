@@ -10,7 +10,7 @@ bundle install
 bundle update convection
 
 export TEMPLATE_TO_CONVERGE=before
-bundle exec convection print s3-bucket > before-template-convection-0.2.32.json
+bundle exec convection print s3-bucket > rendered-stacks/before-template-convection-0.2.32.json
 ```
 
 ### Using the original template format including https://github.com/rapid7/convection/pull/143
@@ -21,7 +21,7 @@ bundle install
 bundle update convection
 
 export TEMPLATE_TO_CONVERGE=before
-bundle exec convection print s3-bucket > before-template-convection-with-patch-from-143.json
+bundle exec convection print s3-bucket > rendered-stacks/before-template-convection-with-patch-from-143.json
 ```
 
 ### Using the new template format including https://github.com/rapid7/convection/pull/143
@@ -32,5 +32,5 @@ bundle install
 bundle update convection
 
 export TEMPLATE_TO_CONVERGE=after
-bundle exec convection print s3-bucket > after-template-convection-with-patch-from-143.json
+bundle exec convection print s3-bucket > rendered-stacks/after-template-convection-with-patch-from-143.json
 ```
