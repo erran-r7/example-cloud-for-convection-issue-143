@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require_relative './s3_bucket_template_before.rb'
+require_relative './s3_bucket_template_after.rb'
+
+ENV['USER'] ||= 'anon'
+name "#{ENV['USER']}-example-cloud-fix-136"
+# Erran is impatient and likes to converge on the same island he lives on.
+region 'eu-west-1'
+
+case ENV['TEMPLATE_TO_CONVERGE'].to_s
+when /before/i
+  stack 's3-bucket', S3_BUCKET_BEFORE
+when /after/i
+  stack 's3-bucket', S3_BUCKET_AFTER
+else
+  fail ArgumentError, 'This example cloud requires that you set and export $TEMPLATE_TO_CONVERGE as "before" or "after".'
+end
